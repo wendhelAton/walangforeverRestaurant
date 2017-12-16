@@ -1,0 +1,11 @@
+C:\Users\COMLABPC14\source\repos\walangforeverRestaurant\walangforeverRestaurant.Domain\obj\Debug\walangforeverRestaurant.Domain.csprojResolveAssemblyReference.cache
+C:\Users\COMLABPC14\source\repos\walangforeverRestaurant\walangforeverRestaurant.Domain\obj\Debug\walangforeverRestaurant.Domain.csproj.CoreCompileInputs.cache
+C:\Users\COMLABPC14\source\repos\walangforeverRestaurant\walangforeverRestaurant.Domain\bin\Debug\walangforeverRestaurant.Domain.dll.config
+C:\Users\COMLABPC14\source\repos\walangforeverRestaurant\walangforeverRestaurant.Domain\bin\Debug\walangforeverRestaurant.Domain.dll
+C:\Users\COMLABPC14\source\repos\walangforeverRestaurant\walangforeverRestaurant.Domain\bin\Debug\walangforeverRestaurant.Domain.pdb
+C:\Users\COMLABPC14\source\repos\walangforeverRestaurant\walangforeverRestaurant.Domain\bin\Debug\EntityFramework.dll
+C:\Users\COMLABPC14\source\repos\walangforeverRestaurant\walangforeverRestaurant.Domain\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\COMLABPC14\source\repos\walangforeverRestaurant\walangforeverRestaurant.Domain\bin\Debug\EntityFramework.xml
+C:\Users\COMLABPC14\source\repos\walangforeverRestaurant\walangforeverRestaurant.Domain\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\COMLABPC14\source\repos\walangforeverRestaurant\walangforeverRestaurant.Domain\obj\Debug\walangforeverRestaurant.Domain.dll
+C:\Users\COMLABPC14\source\repos\walangforeverRestaurant\walangforeverRestaurant.Domain\obj\Debug\walangforeverRestaurant.Domain.pdb
