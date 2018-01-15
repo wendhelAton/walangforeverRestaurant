@@ -11,6 +11,7 @@ namespace walangforeverRestaurant.Domain.BLL
 {
     public static class UsersBLL
     {
+        //UserBLL Folder ito yung nagbibigay ng code sa database. at pinapaalam nya yung mga nilagay mong code sa project mo..
         private static Insfrastructure.DataAccess db = new Insfrastructure.DataAccess();
 
         public static List<User>  GetAll()
@@ -18,10 +19,34 @@ namespace walangforeverRestaurant.Domain.BLL
             return db.Users.ToList();
         }
 
-        public static Page<User> Search(long pageSize = 3, long pageIndex = 1,UserSortOrder orderBy = UserSortOrder.UserName,SortOrder sortOrder = SortOrder.Ascending)
+        public static Page<User> Search( long pageSize = 3, long pageIndex = 1,UserSortOrder orderBy = UserSortOrder.UserName,SortOrder sortOrder = SortOrder.Ascending, Role? role = null, string keyword = "")
         {
             Page<User> result = new Page<User>();
-            long queryCount = db.Users.Count();
+
+            if(pageSize <1)
+            {
+                pageSize = 1;
+            }
+
+
+            //yung db.users ginawa nating userQuiry sa code na to,(List of users) (Filtering)
+            IQueryable<User> userQuery = (IQueryable<User>)db.Users;
+            
+            //nagtatanong siya kung may role ka bang binigay sa kanyang role.. code sa search(Filtering)
+            if(role != null)
+            {
+                userQuery = userQuery.Where(u => u.Role == role.Value);
+            }
+            //Filtering
+            if (string.IsNullOrEmpty(keyword) == false)
+            {
+                userQuery = userQuery.Where(u => u.FirstName.Contains(keyword)
+                                              || u.LastName.Contains(keyword)
+                                              || u.UserName.Contains(keyword));
+            }
+
+            //code para sa page(Paging)
+            long queryCount = userQuery.Count();
             long PageCount = (long)Math.Ceiling((decimal)(queryCount / pageSize));
             long mod = (queryCount % pageSize);
 
@@ -36,27 +61,27 @@ namespace walangforeverRestaurant.Domain.BLL
 
             if (sortOrder == SortOrder.Ascending && orderBy == UserSortOrder.UserName)
             {
-                users = db.Users.OrderBy(u => u.UserName).ToList();
+                users = userQuery.OrderBy(u => u.UserName).ToList();
             }
             else if (sortOrder == SortOrder.Descending && orderBy == UserSortOrder.UserName)
             {
-                users = db.Users.OrderByDescending(u => u.UserName).ToList();
+                users = userQuery.OrderByDescending(u => u.UserName).ToList();
             }
             else if (sortOrder == SortOrder.Ascending && orderBy == UserSortOrder.FirstName)
             {
-                users = db.Users.OrderBy(u => u.FirstName).ToList();
+                users = userQuery.OrderBy(u => u.FirstName).ToList();
             }
             else if (sortOrder == SortOrder.Descending && orderBy == UserSortOrder.FirstName)
             {
-                users = db.Users.OrderByDescending(u => u.FirstName).ToList();
+                users = userQuery.OrderByDescending(u => u.FirstName).ToList();
             }
             else if (sortOrder == SortOrder.Ascending && orderBy == UserSortOrder.LastName)
             {
-                users = db.Users.OrderBy(u => u.LastName).ToList();
+                users = userQuery.OrderBy(u => u.LastName).ToList();
             }
             else if (sortOrder == SortOrder.Descending && orderBy == UserSortOrder.LastName)
             {
-                users = db.Users.OrderByDescending(u => u.LastName).ToList();
+                users = userQuery.OrderByDescending(u => u.LastName).ToList();
             }
 
 

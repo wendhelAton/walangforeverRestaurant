@@ -23,43 +23,67 @@ namespace walangforeverRestaurant.Users
     /// </summary>
     public partial class List : Window
     {
+       
         private long pageSize = 3;
         private long pageIndex = 1;
         private long queryCount = 0;
         private long pageCount = 0;
         private SortOrder sortOrder = SortOrder.Ascending;
         private UserSortOrder sortby = UserSortOrder.UserName;
+        private Role? role = null;
+        //adding a keyword to search
+        private string keyword = "";
         
         public List()
         {
             InitializeComponent();
+            //nag-add ng role na UserSortOrder at SortOrder para makilala ng nasa ibaba niya at code para mailagay ang mga role sa Sort By..
             cboSortby.ItemsSource = Enum.GetValues(typeof(UserSortOrder)).Cast<UserSortOrder>();
             cboSortOrder.ItemsSource = Enum.GetValues(typeof(SortOrder)).Cast<SortOrder>();
+            //Code para mailagay ang mga role sa Filter tulad ng Chef,admin,waiter at iba pa.
+            List<Role> roles = Enum.GetValues(typeof(Role)).Cast<Role>().ToList();
+            //code for adding the role (All) in the CboRole.. and display all the other members
+            List<string> roleItems = new List<string>();
+            roleItems.Add("All");
+            foreach (Role role in roles)
+            {
+                roleItems.Add(role.ToString());
+            }
+
+            cboRole.ItemsSource = roleItems;
+
+            cboSortby.SelectedIndex = 0;
+            cboSortOrder.SelectedIndex = 0;
+            cboRole.SelectedIndex = 0;
+
             showList();
         }
 
         private void showList()
         {
 
-            Page<User> users = UsersBLL.Search(pageSize, pageIndex,sortby,sortOrder);
+            Page<User> users = UsersBLL.Search(pageSize, pageIndex,sortby,sortOrder,role);
             lblPages.Content = "page" + pageIndex + " of " + users.PageCount;
             lblResult.Content = "Search Result: " + users.QueryCount + " Users";
             queryCount = users.QueryCount;
             pageCount = users.PageCount;
             DgList.ItemsSource = users.Items;
+           
             
 
 
         }
 
         private void btnLast_Click(object sender, RoutedEventArgs e)
-        {
+        {    
+            //code para mapunta sa last Page
             pageIndex = pageCount;
             showList();
         }
 
         private void btnPrevious_Click(object sender, RoutedEventArgs e)
-        {
+        { 
+            //code para maprevious yung page
             pageIndex = pageIndex - 1;
             
             if (pageIndex < 1)
@@ -72,12 +96,14 @@ namespace walangforeverRestaurant.Users
 
         private void btnFirst_Click(object sender, RoutedEventArgs e)
         {
+            //code para mapunta ka sa 1st page
             pageIndex = 1;
             showList();
         }
 
         private void btnNext_Click(object sender, RoutedEventArgs e)
         {
+            //code para sa next page.
             pageIndex = pageIndex + 1;
 
             if (pageIndex > pageCount)
@@ -90,6 +116,7 @@ namespace walangforeverRestaurant.Users
 
         private void cboSortby_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            //code para lumabas ang Username,Lastname,Firstname sa ComboBox
             MessageBox.Show(cboSortby.SelectedValue.ToString());
             if (cboSortby.SelectedValue.ToString() == UserSortOrder.UserName.ToString())
             {
@@ -111,6 +138,7 @@ namespace walangforeverRestaurant.Users
 
         private void cboSortOrder_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            //code para lumabas ng Ascending,Descending sa ComboBox
             if (cboSortOrder.SelectedValue.ToString() ==  SortOrder.Ascending.ToString())
             {
                 sortOrder = SortOrder.Ascending;
@@ -126,6 +154,7 @@ namespace walangforeverRestaurant.Users
 
         private void txtboxPageSize_TextChanged(object sender, TextChangedEventArgs e)
         {
+            
             int newPageSize = 3;
             bool result = Int32.TryParse(txtboxPageSize.Text, out newPageSize);
 
@@ -134,6 +163,36 @@ namespace walangforeverRestaurant.Users
                 newPageSize = 3;
             }
             pageSize = newPageSize;
+            showList();
+        }
+
+        private void cboRole_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //nilagay dito ang mga users na admin,cashier at ipa pa..
+            if(cboRole.SelectedValue.ToString() == Role.admin.ToString())
+            {
+                role = Role.admin;
+            }
+            else if (cboRole.SelectedValue.ToString() == Role.Cashier.ToString())
+            {
+                role = Role.Cashier;
+            }
+            else if (cboRole.SelectedValue.ToString() == Role.Chef.ToString())
+            {
+                role = Role.Chef;
+            }
+            else if (cboRole.SelectedValue.ToString() == Role.InventoryController.ToString())
+            {
+                role = Role.InventoryController;
+            }
+            else if (cboRole.SelectedValue.ToString() == Role.Waiter.ToString())
+            {
+                role = Role.Waiter;
+            }
+            else if (cboRole.SelectedValue.ToString() == "All")
+            {
+                role = null;
+            }
             showList();
         }
     }

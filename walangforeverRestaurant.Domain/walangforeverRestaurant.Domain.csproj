@@ -47,6 +47,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\CategoryBBL.cs" />
+    <Compile Include="BLL\ProductsBBL.cs" />
     <Compile Include="BLL\UsersBLL.cs" />
     <Compile Include="Enums\OrderStatus.cs" />
     <Compile Include="Enums\Role.cs" />

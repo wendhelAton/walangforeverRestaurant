@@ -8,6 +8,7 @@ namespace walangforeverRestaurant.Domain.Insfrastructure
 {
       public class BaseModel
     {
+        //code para hindi mo na ilagay ang Id sa Model.Users at code para malaman mo kung anong oras ginawa ang mga user. direct to database ito.
         public BaseModel()
         {
             this.Id = Guid.NewGuid();

@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:walangforeverRestaurant.Users"
         mc:Ignorable="d"
-        Title="Users" Height="439.1" Width="585">
-    <Grid>
+        Title="Users" Height="439.1" Width="637">
+    <Grid Margin="0,0,2,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="29*"/>
             <ColumnDefinition Width="263*"/>
         </Grid.ColumnDefinitions>
-        <DataGrid x:Name="DgList" HorizontalAlignment="Left" Height="131" Margin="0,88,0,0" VerticalAlignment="Top" Width="488" Grid.Column="1" RenderTransformOrigin="0.5,0.5" AutoGenerateColumns="False">
+        <DataGrid x:Name="DgList" HorizontalAlignment="Left" Height="131" Margin="10,148,0,0" VerticalAlignment="Top" Width="598" RenderTransformOrigin="0.5,0.5" AutoGenerateColumns="False" Grid.ColumnSpan="2">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="UserName"
                                     Binding="{Binding UserName}" Width="*"/>
@@ -23,17 +23,21 @@
                                     Binding="{Binding Role}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="btnLast" Content="&gt;|" Grid.Column="1" HorizontalAlignment="Left" Margin="388,320,0,0" VerticalAlignment="Top" Width="34" Height="35" Click="btnLast_Click"/>
-        <Button x:Name="btnFirst" Content="|&lt;" Grid.Column="1" HorizontalAlignment="Left" Margin="119,320,0,0" VerticalAlignment="Top" Width="38" Height="35" RenderTransformOrigin="0.5,0.5" Click="btnFirst_Click"/>
-        <Button x:Name="btnNext" Content="&gt;" Grid.Column="1" HorizontalAlignment="Left" Margin="348,320,0,0" VerticalAlignment="Top" Width="35" RenderTransformOrigin="0.481,0.455" Height="35" Click="btnNext_Click"/>
-        <Button x:Name="btnPrevious" Content="&lt;" Grid.Column="1" HorizontalAlignment="Left" Margin="162,320,0,0" VerticalAlignment="Top" Width="41" RenderTransformOrigin="0.514,0.5" Height="35" Click="btnPrevious_Click"/>
-        <Label x:Name="lblPages" Content="          Page X of Y" Grid.Column="1" HorizontalAlignment="Center" Margin="208,325,177,0" VerticalAlignment="Top" Width="135"/>
-        <Label x:Name="lblSort" Content="Sort By" Grid.Column="1" HorizontalAlignment="Left" Margin="10,57,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cboSortby" Grid.Column="1" HorizontalAlignment="Left" Margin="63,57,0,0" VerticalAlignment="Top" Width="136" SelectionChanged="cboSortby_SelectionChanged"/>
-        <ComboBox x:Name="cboSortOrder" Grid.Column="1" HorizontalAlignment="Left" Margin="227,57,0,0" VerticalAlignment="Top" Width="136" SelectionChanged="cboSortOrder_SelectionChanged"/>
-        <Label x:Name="lblResult" Content="Search Result : Z Users" Grid.Column="1" HorizontalAlignment="Center" Margin="10,224,321,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.346" Width="189"/>
-        <Label x:Name="lblPageSize" Content="Page Size" Grid.Column="1" HorizontalAlignment="Left" Margin="10,255,0,0" VerticalAlignment="Top" Width="87"/>
-        <TextBox x:Name="txtboxPageSize" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="104,255,0,0" TextWrapping="Wrap" Text="3" VerticalAlignment="Top" Width="31" TextChanged="txtboxPageSize_TextChanged"/>
+        <Button x:Name="btnLast" Content="&gt;|" Grid.Column="1" HorizontalAlignment="Left" Margin="376,348,0,0" VerticalAlignment="Top" Width="34" Height="35" Click="btnLast_Click"/>
+        <Button x:Name="btnFirst" Content="|&lt;" Grid.Column="1" HorizontalAlignment="Left" Margin="107,348,0,0" VerticalAlignment="Top" Width="38" Height="35" RenderTransformOrigin="0.5,0.5" Click="btnFirst_Click"/>
+        <Button x:Name="btnNext" Content="&gt;" Grid.Column="1" HorizontalAlignment="Left" Margin="336,348,0,0" VerticalAlignment="Top" Width="35" RenderTransformOrigin="0.481,0.455" Height="35" Click="btnNext_Click"/>
+        <Button x:Name="btnPrevious" Content="&lt;" Grid.Column="1" HorizontalAlignment="Left" Margin="150,348,0,0" VerticalAlignment="Top" Width="41" RenderTransformOrigin="0.514,0.5" Height="35" Click="btnPrevious_Click"/>
+        <Label x:Name="lblPages" Content="          Page X of Y" Grid.Column="1" HorizontalAlignment="Center" Margin="219,353,212,0" VerticalAlignment="Top" Width="134"/>
+        <Label x:Name="lblSort" Content="Sort By" HorizontalAlignment="Left" Margin="17,106,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <ComboBox x:Name="cboSortby" Grid.Column="1" HorizontalAlignment="Left" Margin="8,106,0,0" VerticalAlignment="Top" Width="94" SelectionChanged="cboSortby_SelectionChanged"/>
+        <ComboBox x:Name="cboSortOrder" Grid.Column="1" HorizontalAlignment="Left" Margin="120,106,0,0" VerticalAlignment="Top" Width="93" SelectionChanged="cboSortOrder_SelectionChanged"/>
+        <Label x:Name="lblResult" Content="Search Result : Z Users" HorizontalAlignment="Center" Margin="12,284,427,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.346" Width="188" Grid.ColumnSpan="2"/>
+        <Label x:Name="lblPageSize" Content="Page Size" HorizontalAlignment="Left" Margin="12,315,0,0" VerticalAlignment="Top" Width="87" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtboxPageSize" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="44,315,0,0" TextWrapping="Wrap" Text="3" VerticalAlignment="Top" Width="31" TextChanged="txtboxPageSize_TextChanged"/>
+        <Label x:Name="lblFilter" Content="Filter" Grid.Column="1" HorizontalAlignment="Left" Margin="228,107,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cboRole" Grid.Column="1" HorizontalAlignment="Left" Margin="264,107,0,0" VerticalAlignment="Top" Width="80" SelectionChanged="cboRole_SelectionChanged"/>
+        <TextBox x:Name="txtBoxSearch" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="349,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="95" RenderTransformOrigin="0.508,0.522"/>
+        <Button x:Name="btnSearch" Content="Search" Grid.Column="1" HorizontalAlignment="Left" Margin="471,106,0,0" VerticalAlignment="Top" Width="84" Click="btnSearch_Click"/>
 
     </Grid>
 </Window>

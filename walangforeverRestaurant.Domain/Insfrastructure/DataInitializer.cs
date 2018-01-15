@@ -9,7 +9,7 @@ namespace walangforeverRestaurant.Domain.Insfrastructure
 {
     public class DataInitializer : System.Data.Entity.DropCreateDatabaseIfModelChanges<DataAccess>
     {
-
+        //DataInitializer dito ka mag-aadd ng users or members ayan yun code
         protected override void Seed(DataAccess db)
         {
 #region Users
@@ -182,8 +182,95 @@ namespace walangforeverRestaurant.Domain.Insfrastructure
            );
             db.SaveChanges();
 
-#endregion
+            #endregion
+#region Category
 
+            db.Categories.Add(new Model.Category()
+            {
+                Id = Guid.Parse("9962f7b2e4c24f7e946bfc331c2fa0f0"),
+                Name = "Beverages"
+
+            }
+            ); db.SaveChanges();
+
+            db.Categories.Add(
+                new Model.Category()
+                {
+                    Id = Guid.Parse("9962f7b2e4c24f7e946bfc331c2fa0f2"),
+                    Name = "Non-alcoholic",
+                    ParentId = Guid.Parse("9962f7b2e4c24f7e946bfc331c2fa0f0"),
+                }
+            );
+            db.SaveChanges();
+
+            #endregion
+#region Products
+            db.Product.Add(
+                new Model.Products()
+                {
+                    Id = Guid.NewGuid(),
+                    Name = "Beer",
+                    CategoryId = Guid.Parse("9962f7b2e4c24f7e946bfc331c2fa0f1"),
+                    Price = decimal.Parse("50")
+                }
+            );
+            db.SaveChanges();
+
+            db.Product.Add(
+                new Model.Products()
+                {
+                    Id = Guid.NewGuid(),
+                    Name = "Rhum",
+                    CategoryId = Guid.Parse("9962f7b2e4c24f7e946bfc331c2fa0f1"),
+                    Price = decimal.Parse("750")
+                }
+            );
+            db.SaveChanges();
+
+            db.Product.Add(
+                new Model.Products()
+                {
+                    Id = Guid.NewGuid(),
+                    Name = "Whiskey",
+                    CategoryId = Guid.Parse("9962f7b2e4c24f7e946bfc331c2fa0f1"),
+                    Price = decimal.Parse("550")
+                }
+            );
+            db.SaveChanges();
+
+            db.Product.Add(
+                new Model.Products()
+                {
+                    Id = Guid.NewGuid(),
+                    Name = "Juice",
+                    CategoryId = Guid.Parse("9962f7b2e4c24f7e946bfc331c2fa0f2"),
+                    Price = decimal.Parse("50")
+                }
+            );
+            db.SaveChanges();
+
+            db.Product.Add(
+                new Model.Products()
+                {
+                    Id = Guid.NewGuid(),
+                    Name = "Soda",
+                    CategoryId = Guid.Parse("9962f7b2e4c24f7e946bfc331c2fa0f2"),
+                    Price = decimal.Parse("40")
+                }
+            );
+            db.SaveChanges();
+
+            db.Product.Add(
+                new Model.Products()
+                {
+                    Id = Guid.NewGuid(),
+                    Name = "Shake",
+                    CategoryId = Guid.Parse("9962f7b2e4c24f7e946bfc331c2fa0f2"),
+                    Price = decimal.Parse("80")
+                }
+            );
+            db.SaveChanges();
+            #endregion
 
 
 
