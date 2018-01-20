@@ -6,8 +6,25 @@
         xmlns:local="clr-namespace:walangforeverRestaurant"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        <Button x:Name="btnUser" Content="Users" HorizontalAlignment="Left" Margin="420,10,0,0" VerticalAlignment="Top" Width="87" Height="56" Click="btnUser_Click"/>
+    <Grid x:Name="btnMaterials1">
+        <Button x:Name="btnUser" Content="Users" HorizontalAlignment="Left" Margin="435,10,0,0" VerticalAlignment="Top" Width="72" Height="56" Click="btnUser_Click" BorderBrush="#FFE2E6D2" Foreground="#FF040404">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="#FF00FF29" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btnCategory" Content="Category" HorizontalAlignment="Left" Margin="324,10,0,0" VerticalAlignment="Top" Width="76" Height="56" Click="btnCategory_Click"/>
+        <Button x:Name="btnProducts" Content="Products" HorizontalAlignment="Left" Margin="224,10,0,0" VerticalAlignment="Top" Width="76" Height="56" Click="btnProducts_Click"/>
+        <Button x:Name="btnDelivery" Content="Delivery" HorizontalAlignment="Left" Margin="120,10,0,0" VerticalAlignment="Top" Width="87" Height="56" Click="btnDelivery_Click"/>
+        <Button x:Name="btnDeliveryItems" Content="DeliveryItems" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="87" Height="56" Click="btnDeliveryItems_Click"/>
+        <Button x:Name="btnMaterials" Content="Materials" HorizontalAlignment="Left" Margin="435,97,0,0" VerticalAlignment="Top" Width="72" Height="56" Click="btnMaterials_Click"/>
+        <Button x:Name="btnMaterials_Copy" Content="Materials" HorizontalAlignment="Left" Margin="324,97,0,0" VerticalAlignment="Top" Width="76" Height="56" Click="btnMaterials_Click"/>
+        <Button x:Name="btnOrders" Content="Orders" HorizontalAlignment="Left" Margin="324,97,0,0" VerticalAlignment="Top" Width="76" Height="56" Click="btnOrders_Click"/>
+        <Button x:Name="btnOrdersItems" Content="OrdersItems" HorizontalAlignment="Left" Margin="224,97,0,0" VerticalAlignment="Top" Width="72" Height="56" Click="btnOrdersItems_Click"/>
+        <Button x:Name="btnRecipe" Content="Recipe" Margin="120,97,310,0" VerticalAlignment="Top" Height="56" Click="btnRecipe_Click"/>
+        <Button x:Name="btnSales" Content="Sales" HorizontalAlignment="Left" Margin="10,97,0,0" VerticalAlignment="Top" Width="87" Height="56" Click="btnSales_Click"/>
 
     </Grid>
 </Window>

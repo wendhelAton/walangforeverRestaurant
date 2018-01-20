@@ -58,56 +58,9 @@ namespace walangforeverRestaurant.Category
             txtboxPageSize.Text = categories.PageSize.ToString();
         }
 
-        private void btnLast_Click(object sender, RoutedEventArgs e)
+        private void txtboxPageSize_KeyDown(object sender, KeyEventArgs e)
         {
-            pageIndex = pageCount;
-            showList();
-        }
 
-        private void btnFirst_Click(object sender, RoutedEventArgs e)
-        {
-            pageIndex = 1;
-            showList();
-        }
-
-        private void btnPrev_Click(object sender, RoutedEventArgs e)
-        {
-            pageIndex = pageIndex - 1;
-
-            if (pageIndex < 1)
-            {
-                pageIndex = 1;
-            }
-
-            showList();
-        }
-
-        private void btnNext_Click(object sender, RoutedEventArgs e)
-        {
-            pageIndex = pageIndex + 1;
-
-            if (pageIndex > pageCount)
-            {
-                pageIndex = pageCount;
-            }
-
-            showList();
-        }
-
-        private void txtBoxSearch_TextChanged_1(object sender, TextChangedEventArgs e)
-        {
-            keyword = txtBoxSearch.Text;
-            showList();
-        }
-
-        private void btnSearch_Click(object sender, RoutedEventArgs e)
-        {
-            keyword = txtSearch.Text;
-            showList();
-        }
-
-        private void txtboxPageSize_TextChanged(object sender, KeyEventArgs e)
-        {
             if (e.Key == Key.Return)
             {
                 int newPageSize = 3;
@@ -122,6 +75,63 @@ namespace walangforeverRestaurant.Category
                 pageSize = newPageSize;
                 showList();
             }
+        }
+
+        private void cboSortOrder_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (cboSortOrder.SelectedValue.ToString() == SortOrder.Ascending.ToString())
+            {
+                sortOrder = SortOrder.Ascending;
+
+            }
+            else if (cboSortOrder.SelectedValue.ToString() == SortOrder.Descending.ToString())
+            {
+                sortOrder = SortOrder.Descending;
+
+            }
+            showList();
+        }
+
+        private void btnLast_Click_1(object sender, RoutedEventArgs e)
+        {
+            pageIndex = pageCount;
+            showList();
+        }
+
+        private void btnNext_Click_1(object sender, RoutedEventArgs e)
+        {
+            pageIndex = pageIndex + 1;
+
+            if (pageIndex > pageCount)
+            {
+                pageIndex = pageCount;
+            }
+
+            showList();
+        }
+
+        private void btnPrevious_Click(object sender, RoutedEventArgs e)
+        {
+            pageIndex = pageIndex - 1;
+
+            if (pageIndex < 1)
+            {
+                pageIndex = 1;
+            }
+
+            showList();
+        }
+
+        private void btnFirst_Click_1(object sender, RoutedEventArgs e)
+        {
+            pageIndex = 1;
+            showList();
+        }
+
+        private void btnSearch_Click_1(object sender, RoutedEventArgs e)
+        {
+            keyword = txtBoxSearch.Text;
+            showList();
         }
     }
 

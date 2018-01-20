@@ -12,7 +12,7 @@ namespace walangforeverRestaurant.Domain.Insfrastructure
         //DataInitializer dito ka mag-aadd ng users or members ayan yun code
         protected override void Seed(DataAccess db)
         {
-#region Users
+            #region Users
             db.Users.Add(new Model.User()
             {
                 Id = Guid.NewGuid(),
@@ -183,7 +183,7 @@ namespace walangforeverRestaurant.Domain.Insfrastructure
             db.SaveChanges();
 
             #endregion
-#region Category
+            #region Category
 
             db.Categories.Add(new Model.Category()
             {
@@ -204,7 +204,7 @@ namespace walangforeverRestaurant.Domain.Insfrastructure
             db.SaveChanges();
 
             #endregion
-#region Products
+            #region Products
             db.Product.Add(
                 new Model.Products()
                 {
@@ -271,6 +271,20 @@ namespace walangforeverRestaurant.Domain.Insfrastructure
             );
             db.SaveChanges();
             #endregion
+            #region Delivery
+            #endregion
+            #region DeliveryItems
+            #endregion
+            #region Materials
+            #endregion
+            #region Orders
+            #endregion
+            #region OrdersItems
+            #endregion
+            #region Recipe
+            #endregion
+            #region Sales
+#endregion
 
 
 

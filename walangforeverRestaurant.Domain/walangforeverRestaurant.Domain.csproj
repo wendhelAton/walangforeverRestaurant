@@ -48,7 +48,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\CategoryBBL.cs" />
+    <Compile Include="BLL\DeliveryBBL.cs" />
+    <Compile Include="BLL\DeliveryItemsBBL.cs" />
+    <Compile Include="BLL\MaterialsBBL.cs" />
+    <Compile Include="BLL\OrdersBBL.cs" />
+    <Compile Include="BLL\OrdersItemsBBL.cs" />
     <Compile Include="BLL\ProductsBBL.cs" />
+    <Compile Include="BLL\RecipeBBL.cs" />
+    <Compile Include="BLL\SalesBBL.cs" />
     <Compile Include="BLL\UsersBLL.cs" />
     <Compile Include="Enums\OrderStatus.cs" />
     <Compile Include="Enums\Role.cs" />
