@@ -20,7 +20,7 @@ namespace walangforeverRestaurant.Domain.Insfrastructure
                 LastName = "Aton",
                 Password = "WendhelAton",
                 UserName = "Wendhel22",
-                Role = Enums.Role.admin
+                Role = Enums.Role.Admin
 
             }
             );
@@ -32,7 +32,7 @@ namespace walangforeverRestaurant.Domain.Insfrastructure
                 LastName = "Frondozo",
                 Password = "JohnmarkFrondozo",
                 UserName = "Johnmark23",
-                Role = Enums.Role.admin
+                Role = Enums.Role.Admin
 
             }
             );

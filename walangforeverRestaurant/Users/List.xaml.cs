@@ -169,9 +169,9 @@ namespace walangforeverRestaurant.Users
         private void cboRole_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             //nilagay dito ang mga users na admin,cashier at ipa pa..
-            if(cboRole.SelectedValue.ToString() == Role.admin.ToString())
+            if(cboRole.SelectedValue.ToString() == Role.Admin.ToString())
             {
-                role = Role.admin;
+                role = Role.Admin;
             }
             else if (cboRole.SelectedValue.ToString() == Role.Cashier.ToString())
             {
@@ -198,7 +198,23 @@ namespace walangforeverRestaurant.Users
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
+            keyword = txtBoxSearch.Text;
+            showList();
+        }
+
+        private void btnUser_Click(object sender, RoutedEventArgs e)
+        {
+            Users.Add addWindow = new Users.Add();
+            addWindow.Show();
+        }
+        //naglagay ako sa datagrid ng button Update, code for UpdateButton
+        private void btnUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            User user = ((FrameworkElement)sender).DataContext as User;
+            Update updateWindow = new Update(user);
+            updateWindow.Show();
 
         }
+        
     }
 }

@@ -40,3 +40,7 @@ C:\Users\COMLABPC14\source\repos\walangforeverRestaurant\walangforeverRestaurant
 C:\Users\COMLABPC14\source\repos\walangforeverRestaurant\walangforeverRestaurant\obj\Debug\Products\List.baml
 C:\Users\COMLABPC14\source\repos\walangforeverRestaurant\walangforeverRestaurant\obj\Debug\Recipe\List.baml
 C:\Users\COMLABPC14\source\repos\walangforeverRestaurant\walangforeverRestaurant\obj\Debug\Sales\List.baml
+C:\Users\COMLABPC14\source\repos\walangforeverRestaurant\walangforeverRestaurant\obj\Debug\Users\Add.g.cs
+C:\Users\COMLABPC14\source\repos\walangforeverRestaurant\walangforeverRestaurant\obj\Debug\Users\Add.baml
+C:\Users\COMLABPC14\source\repos\walangforeverRestaurant\walangforeverRestaurant\obj\Debug\Users\Update.g.cs
+C:\Users\COMLABPC14\source\repos\walangforeverRestaurant\walangforeverRestaurant\obj\Debug\Users\Update.baml

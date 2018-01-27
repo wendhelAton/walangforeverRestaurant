@@ -8,7 +8,7 @@ namespace walangforeverRestaurant.Domain.Enums
 {
    public enum Role
     {
-        admin,
+        Admin,
         Cashier,
         InventoryController,
         Waiter,

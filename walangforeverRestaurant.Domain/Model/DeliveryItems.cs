@@ -11,5 +11,6 @@ namespace walangforeverRestaurant.Domain.Model
     {
         public Guid? MaterialId { get; set; }
         public int Quantity { get; set; }
+        public Guid? DeliveryId { get; set; }
     }
 }
