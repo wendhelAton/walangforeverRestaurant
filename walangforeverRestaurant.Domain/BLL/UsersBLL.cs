@@ -54,6 +54,12 @@ namespace walangforeverRestaurant.Domain.BLL
             }
             return userRecord;
         }
+        public static Guid? Delete(User user)
+        {
+            db.Users.Remove(user);
+            db.SaveChanges();
+            return user.Id;
+        }
 
 
         public static Page<User> Search( long pageSize = 3, long pageIndex = 1,UserSortOrder orderBy = UserSortOrder.UserName,SortOrder sortOrder = SortOrder.Ascending, Role? role = null, string keyword = "")

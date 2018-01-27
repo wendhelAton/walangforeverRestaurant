@@ -215,6 +215,16 @@ namespace walangforeverRestaurant.Users
             updateWindow.Show();
 
         }
+        //code for deleting record in datagrid
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            User user = ((FrameworkElement)sender).DataContext as User;
+            if (MessageBox.Show("Are you sure you want to Delete " + user.FirstName + " " + user.LastName + "?","Delete User",MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                UsersBLL.Delete(user);
+            }
+           
+        }
         
     }
 }

@@ -28,8 +28,14 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                
-                
+
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="btnConfirmDelete_Click" Click="btnDelete_Click">Delete</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="btnLast" Content="&gt;|" Grid.Column="1" HorizontalAlignment="Left" Margin="376,348,0,0" VerticalAlignment="Top" Width="34" Height="35" Click="btnLast_Click"/>
