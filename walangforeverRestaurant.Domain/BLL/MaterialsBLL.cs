@@ -18,6 +18,44 @@ namespace walangforeverRestaurant.Domain.BLL
         {
             return db.Materials.ToList();
         }
+        //this code check if the user1 already have  a user1
+        public static Materials GetMaterialByName(string Name)
+        {
+            return db.Materials.FirstOrDefault(u => u.Name.ToLower() == Name.ToLower());
+        }
+        //code for duplicate your user account
+        public static Materials GetDuplicateName(string Name, Guid? id)
+        {
+            return db.Materials.FirstOrDefault(u => u.Name.ToLower() == Name.ToLower()
+
+            && u.Id != id);
+
+        }
+
+        public static Materials Create(Materials materials)
+        {
+            db.Materials.Add(materials);
+            db.SaveChanges();
+            return materials;
+        }
+        //code for update in datagrid
+        public static Materials Update(Materials materials)
+        {
+            Materials MatRecord = db.Materials.FirstOrDefault(u => u.Id == materials.Id);
+            if (MatRecord != null)
+            {
+                MatRecord.Name = materials.Name;
+                db.SaveChanges();
+            }
+            return MatRecord;
+        }
+        public static Guid? Delete(Materials materials)
+        {
+            db.Materials.Remove(materials);
+            db.SaveChanges();
+            return materials.Id;
+        }
+
 
         public static Page<Materials> Search(long pageSize = 3, long pageIndex = 1, SortOrder sortOrder = SortOrder.Ascending, string keyword = "")
         {
@@ -64,6 +102,10 @@ namespace walangforeverRestaurant.Domain.BLL
             result.QueryCount = queryCount;
 
             return result;
+        }
+        public static Materials Find(Guid? id)
+        {
+            return db.Materials.FirstOrDefault(u => u.Id == id);
         }
     }
 }

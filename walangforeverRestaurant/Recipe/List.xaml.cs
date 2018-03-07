@@ -23,5 +23,45 @@ namespace walangforeverRestaurant.Recipe
         {
             InitializeComponent();
         }
+
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void cboSortOrder_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+        private void btnNext_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnPrevious_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnFirst_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void txtboxPageSize_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
+
+      
+        private void btnLast_Click_2(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnLast_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

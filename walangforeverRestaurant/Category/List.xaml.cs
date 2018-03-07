@@ -12,10 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using walangforeverRestaurant.Domain.BLL;
+using walangforeverRestaurant.Domain.CustomModels;
 using walangforeverRestaurant.Domain.Enums;
 using walangforeverRestaurant.Domain.Insfrastructure;
 using walangforeverRestaurant.Domain.Model;
-
 
 namespace walangforeverRestaurant.Category
 {
@@ -30,7 +30,7 @@ namespace walangforeverRestaurant.Category
         private long pageCount = 0;
         private SortOrder sortOrder = SortOrder.Ascending;
         private string keyword = "";
-        private Guid? parentId = null;
+        public Guid? parentId = null;
 
         public List(Guid? parentId = null, string parentName = "")
 
@@ -47,9 +47,9 @@ namespace walangforeverRestaurant.Category
             showList();
         }
 
-        private void showList()
+        public void showList()
         {
-            Page<walangforeverRestaurant.Domain.Model.Category> categories = CategoryBLL.Search(pageSize, pageIndex, sortOrder, keyword, this.parentId);
+            Page<CustomCategory> categories = CategoryBLL.Search(pageSize, pageIndex, sortOrder, keyword, this.parentId);
             lblPages.Content = "page " + pageIndex + " of " + categories.PageCount;
             lblResult.Content = "Search Result : " + categories.QueryCount + " Categories";
             queryCount = categories.QueryCount;
@@ -92,12 +92,6 @@ namespace walangforeverRestaurant.Category
             showList();
         }
 
-        private void btnLast_Click_1(object sender, RoutedEventArgs e)
-        {
-            pageIndex = pageCount;
-            showList();
-        }
-
         private void btnNext_Click_1(object sender, RoutedEventArgs e)
         {
             pageIndex = pageIndex + 1;
@@ -132,6 +126,42 @@ namespace walangforeverRestaurant.Category
         {
             keyword = txtBoxSearch.Text;
             showList();
+        }
+
+        private void btnViewChildren_Click(object sender, RoutedEventArgs e)
+        {
+
+            CustomCategory category = ((FrameworkElement)sender).DataContext as CustomCategory;
+            Category.List categoryWindow = new Category.List(category.Id, category.Name);
+            categoryWindow.Show();
+        }
+
+        private void btnViewProducts_Click(object sender, RoutedEventArgs e)
+        {
+            CustomCategory category = ((FrameworkElement)sender).DataContext as CustomCategory;
+            Products.List productWindow = new Products.List(category.Id, category.Name);
+            productWindow.Show();
+        }
+
+        private void btnLast_Click(object sender, RoutedEventArgs e)
+        {
+            pageIndex = pageCount;
+            showList();
+        }
+
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            //lahat ng code dito ay mapupunta sa Add dahil sa code na Category.Add(this)
+            //kilala na ni Add Window lahat ng code sa List Window 
+            Category.Add categoryWindow = new Category.Add(this);
+            categoryWindow.Show();
+        }
+        private void btnUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            walangforeverRestaurant.Domain.Model.Category category = ((FrameworkElement)sender).DataContext as walangforeverRestaurant.Domain.Model.Category;
+            Update updateWindow = new Update(category,this);
+            updateWindow.Show();
+
         }
     }
 

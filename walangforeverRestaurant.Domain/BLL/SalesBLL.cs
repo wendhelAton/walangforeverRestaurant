@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace walangforeverRestaurant.Domain.BLL
 {
-    class DeliveryItemsBBL
+    class SalesBLL
     {
     }
 }

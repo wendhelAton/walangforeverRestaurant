@@ -15,7 +15,7 @@
         <TextBox x:Name="txtboxFirstName" HorizontalAlignment="Left" Height="32" Margin="145,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
         <TextBox x:Name="txtboxLastName" HorizontalAlignment="Left" Height="32" Margin="145,129,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
         <ComboBox x:Name="cboRole" HorizontalAlignment="Left" Margin="109,180,0,0" VerticalAlignment="Top" Width="151" Height="32"/>
-        <Button x:Name="btnCancel" Content="Cancel" HorizontalAlignment="Left" Margin="401,359,0,0" VerticalAlignment="Top" Width="82" Height="34" FontSize="18"/>
+        <Button x:Name="btnCancel" Content="Cancel" HorizontalAlignment="Left" Margin="401,359,0,0" VerticalAlignment="Top" Width="82" Height="34" FontSize="18" Click="btnCancel_Click"/>
         <Button x:Name="btnUpdate" Content="Save" HorizontalAlignment="Left" Margin="503,359,0,0" VerticalAlignment="Top" Width="82" Height="34" FontSize="18" Click="btnUpdate_Click"/>
 
     </Grid>

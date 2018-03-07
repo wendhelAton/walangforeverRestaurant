@@ -39,7 +39,7 @@ namespace walangforeverRestaurant.Materials
             cboSortOrder.SelectedIndex = 0;
             showlist();
         }
-        private void showlist()
+        public void showlist()
         {
             Page<walangforeverRestaurant.Domain.Model.Materials> Materials = MaterialsBLL.Search(pageSize, pageIndex , sortOrder ,keyword);
             lblPages.Content = "page " + pageIndex + " of " + Materials.PageCount;
@@ -124,6 +124,22 @@ namespace walangforeverRestaurant.Materials
 
             }
             showlist();
+        
+        }
+        private void btnUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            walangforeverRestaurant.Domain.Model.Materials materials = ((FrameworkElement)sender).DataContext as walangforeverRestaurant.Domain.Model.Materials;
+            Update updateWindow = new Update(materials, this);
+            updateWindow.Show();
+
+        }
+
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            //lahat ng code dito ay mapupunta sa Add dahil sa code na Category.Add(this)
+            //kilala na ni Add Window lahat ng code sa List Window 
+            Materials.Add materialsWindow = new Materials.Add(this);
+            materialsWindow.Show();
         }
     }
 }

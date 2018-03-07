@@ -11,7 +11,7 @@
             <ColumnDefinition Width="29*"/>
             <ColumnDefinition Width="263*"/>
         </Grid.ColumnDefinitions>
-        <DataGrid x:Name="DgList" HorizontalAlignment="Left" Height="131" Margin="10,148,0,0" VerticalAlignment="Top" Width="598" RenderTransformOrigin="0.5,0.5" AutoGenerateColumns="False" Grid.ColumnSpan="2">
+        <DataGrid x:Name="DgList" HorizontalAlignment="Left" Height="116" Margin="10,148,0,0" VerticalAlignment="Top" Width="598" RenderTransformOrigin="0.5,0.5" AutoGenerateColumns="False" Grid.ColumnSpan="2">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="UserName"
                                     Binding="{Binding UserName}" Width="*"/>
@@ -48,7 +48,7 @@
         <ComboBox x:Name="cboSortOrder" Grid.Column="1" HorizontalAlignment="Left" Margin="120,106,0,0" VerticalAlignment="Top" Width="93" SelectionChanged="cboSortOrder_SelectionChanged"/>
         <Label x:Name="lblResult" Content="Search Result : Z Users" HorizontalAlignment="Center" Margin="12,284,427,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.346" Width="188" Grid.ColumnSpan="2"/>
         <Label x:Name="lblPageSize" Content="Page Size" HorizontalAlignment="Left" Margin="12,315,0,0" VerticalAlignment="Top" Width="87" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="txtboxPageSize" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="44,315,0,0" TextWrapping="Wrap" Text="3" VerticalAlignment="Top" Width="31" TextChanged="txtboxPageSize_TextChanged"/>
+        <TextBox x:Name="txtboxPageSize" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="44,315,0,0" TextWrapping="Wrap" Text="3" VerticalAlignment="Top" Width="31" KeyDown="txtboxPageSize_KeyDown"/>
         <Label x:Name="lblFilter" Content="Filter" Grid.Column="1" HorizontalAlignment="Left" Margin="228,107,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="cboRole" Grid.Column="1" HorizontalAlignment="Left" Margin="264,107,0,0" VerticalAlignment="Top" Width="80" SelectionChanged="cboRole_SelectionChanged"/>
         <TextBox x:Name="txtBoxSearch" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="349,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="95" RenderTransformOrigin="0.508,0.522"/>

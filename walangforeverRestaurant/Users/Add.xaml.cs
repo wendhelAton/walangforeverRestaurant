@@ -22,18 +22,22 @@ namespace walangforeverRestaurant.Users
     /// </summary>
     public partial class Add : Window
     {
-        public Add()
+       
+        private Users.List _sender;
+
+        public Add(Users.List sender)
         {
             InitializeComponent();
             //Code para mailagay ang mga role sa Filter tulad ng Chef,admin,waiter at iba pa.
             List<Role> roles = Enum.GetValues(typeof(Role)).Cast<Role>().ToList();
             cboRole.ItemsSource = roles;
-
+            this._sender = sender;  
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
             //code for closing the window
+
             this.Close();
         }
 
@@ -82,6 +86,7 @@ namespace walangforeverRestaurant.Users
                 user.Password = this.RandomString(6);
                 UsersBLL.Create(user);
                 MessageBox.Show("User successfully created.");
+                this._sender.showList();
                 this.Close();
             }
         }

@@ -5,8 +5,52 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:walangforeverRestaurant.Recipe"
         mc:Ignorable="d"
-        Title="List" Height="300" Width="300">
+        Title="List" Height="449" Width="661">
     <Grid>
-        
+        <DataGrid x:Name="grList" HorizontalAlignment="Left" Height="186" Margin="22,118,-28,0" VerticalAlignment="Top" Width="606" AutoGenerateColumns="False" CanUserAddRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name"
+                    Binding="{Binding Name}" Width="*" />
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                           <!-- <Button x:Name="btnConfirmViewChildren" Click="btnViewChildren_Click" Visibility="{Binding ShowChildrenButton}" Content="View Children"/>-->
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <!--<Button x:Name="btnConfirmViewProducts" Click="btnViewProducts_Click" Visibility="{Binding ShowProductsButton}" Content="View Products"/>-->
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Button x:Name="btnLast" Content="&gt;|" HorizontalAlignment="Left" Margin="439,376,0,-74" VerticalAlignment="Top" Width="34" Height="35" Click="btnLast_Click"/>
+        <Button x:Name="btnFirst" Content="|&lt;" HorizontalAlignment="Left" Margin="171,376,0,-74" VerticalAlignment="Top" Width="38" Height="35" RenderTransformOrigin="0.5,0.5" Click="btnFirst_Click"/>
+        <Button x:Name="btnNext" Content="&gt;" HorizontalAlignment="Left" Margin="399,376,0,-74" VerticalAlignment="Top" Width="36" RenderTransformOrigin="0.481,0.455" Height="35" Click="btnNext_Click"/>
+        <Button x:Name="btnPrevious" Content="&lt;" HorizontalAlignment="Left" Margin="213,376,0,-74" VerticalAlignment="Top" Width="42" RenderTransformOrigin="0.5,0.5" Height="35" Click="btnPrevious_Click"/>
+        <Label x:Name="lblPages" Content="          Page X of Y" HorizontalAlignment="Center" Margin="260,381,206,-70" VerticalAlignment="Top" Width="134"/>
+        <Label x:Name="lblSort" Content="Sort By" HorizontalAlignment="Left" Margin="24,80,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="25" Width="63">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.725"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <ComboBox x:Name="cboSortOrder" HorizontalAlignment="Left" Margin="87,80,0,0" VerticalAlignment="Top" Width="94" SelectionChanged="cboSortOrder_SelectionChanged"/>
+        <Label x:Name="lblResult" Content="Search Result : Z Users" HorizontalAlignment="Center" Margin="23,309,389,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.346" Width="188"/>
+        <Label x:Name="lblPageSize" Content="Page Size" HorizontalAlignment="Left" Margin="28,340,0,-29" VerticalAlignment="Top" Width="87"/>
+        <TextBox x:Name="txtboxPageSize" HorizontalAlignment="Left" Height="23" Margin="121,343,0,-29" TextWrapping="Wrap" Text="3" VerticalAlignment="Top" Width="31" KeyDown="txtboxPageSize_KeyDown"/>
+        <TextBox x:Name="txtBoxSearch" HorizontalAlignment="Left" Height="23" Margin="423,79,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="95" RenderTransformOrigin="0.508,0.522"/>
+        <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Margin="545,79,-29,0" VerticalAlignment="Top" Width="84" Click="btnSearch_Click"/>
+        <Label x:Name="lblTitle" Content="Recipe" HorizontalAlignment="Left" Margin="22,10,0,0" VerticalAlignment="Top" Width="439" Height="33" FontSize="18" FontWeight="Bold"/>
+
     </Grid>
 </Window>

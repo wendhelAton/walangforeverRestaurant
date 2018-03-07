@@ -62,5 +62,9 @@ namespace walangforeverRestaurant.Domain.BLL
 
             return result;
         }
+        public static Delivery Find(Guid? id)
+        {
+            return db.Delivery.FirstOrDefault(u => u.Id == id);
+        }
     }
 }

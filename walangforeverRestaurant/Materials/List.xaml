@@ -15,6 +15,13 @@
                     Binding="{Binding UOM}" Width="*" />
                 <DataGridTextColumn Header="Quantity"
                     Binding="{Binding Quantity}" Width="*" />
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="btnUpdate_Click" Click="btnUpdate_Click">Update</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
 
             </DataGrid.Columns>
         </DataGrid>
@@ -41,6 +48,7 @@
         <TextBox x:Name="txtBoxSearch" HorizontalAlignment="Left" Height="24" Margin="468,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="96" RenderTransformOrigin="0.508,0.522"/>
         <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Margin="592,106,0,0" VerticalAlignment="Top" Width="85" Height="23" Click="btnSearch_Click"/>
         <Label x:Name="lblTitle" Content="Materials" HorizontalAlignment="Left" Margin="61,37,0,0" VerticalAlignment="Top" Width="445" Height="33" FontSize="18" FontWeight="Bold"/>
+        <Button x:Name="btnAdd" Content="Add Materials" HorizontalAlignment="Left" Margin="592,338,0,0" VerticalAlignment="Top" Width="75" Click="btnAdd_Click"/>
 
     </Grid>
 </Window>

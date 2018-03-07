@@ -192,6 +192,16 @@ namespace walangforeverRestaurant.Domain.Insfrastructure
 
             }
             ); db.SaveChanges();
+            db.Categories.Add(
+
+              new Model.Category()
+              {
+                  Id = Guid.Parse("9962f7b2e4c24f7e946bfc331c2fa0f1"),
+                  Name = "Alcoholic",
+                  ParentId = Guid.Parse("9962f7b2e4c24f7e946bfc331c2fa0f0")
+              }
+          );
+            db.SaveChanges();
 
             db.Categories.Add(
                 new Model.Category()
@@ -276,6 +286,9 @@ namespace walangforeverRestaurant.Domain.Insfrastructure
             #region DeliveryItems
             #endregion
             #region Materials
+           
+
+
             #endregion
             #region Orders
             #endregion
@@ -284,7 +297,7 @@ namespace walangforeverRestaurant.Domain.Insfrastructure
             #region Recipe
             #endregion
             #region Sales
-#endregion
+            #endregion
 
 
 

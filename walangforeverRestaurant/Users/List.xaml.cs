@@ -59,7 +59,7 @@ namespace walangforeverRestaurant.Users
             showList();
         }
 
-        private void showList()
+        public void showList()
         {
 
             Page<User> users = UsersBLL.Search(pageSize, pageIndex,sortby,sortOrder,role);
@@ -152,20 +152,6 @@ namespace walangforeverRestaurant.Users
             showList();
         }
 
-        private void txtboxPageSize_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            
-            int newPageSize = 3;
-            bool result = Int32.TryParse(txtboxPageSize.Text, out newPageSize);
-
-            if(result == false)
-            {
-                newPageSize = 3;
-            }
-            pageSize = newPageSize;
-            showList();
-        }
-
         private void cboRole_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             //nilagay dito ang mga users na admin,cashier at ipa pa..
@@ -204,14 +190,14 @@ namespace walangforeverRestaurant.Users
 
         private void btnUser_Click(object sender, RoutedEventArgs e)
         {
-            Users.Add addWindow = new Users.Add();
+            Users.Add addWindow = new Users.Add(this);
             addWindow.Show();
         }
         //naglagay ako sa datagrid ng button Update, code for UpdateButton
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
             User user = ((FrameworkElement)sender).DataContext as User;
-            Update updateWindow = new Update(user);
+            Update updateWindow = new Update(user,this);
             updateWindow.Show();
 
         }
@@ -222,9 +208,30 @@ namespace walangforeverRestaurant.Users
             if (MessageBox.Show("Are you sure you want to Delete " + user.FirstName + " " + user.LastName + "?","Delete User",MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
                 UsersBLL.Delete(user);
+                MessageBox.Show("User successfully deleted");
+                showList();
             }
            
         }
-        
+
+        private void txtboxPageSize_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            if (e.Key == Key.Return)
+            {
+                int newPageSize = 3;
+                bool result = Int32.TryParse(txtboxPageSize.Text, out newPageSize);
+
+                if (result == false)
+                {
+                    newPageSize = 3;
+
+                }
+
+                pageSize = newPageSize;
+                showList();
+            }
+        }
+
     }
 }

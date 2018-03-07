@@ -20,7 +20,7 @@ namespace walangforeverRestaurant.Domain.BLL
         }
 
         
-        //this code check if the user1 already a user1
+        //this code check if the user1 already have  a user1
         public static User GetUserByUserName(string userName)
         {
             return db.Users.FirstOrDefault(u => u.UserName.ToLower() == userName.ToLower());

@@ -40,12 +40,6 @@ namespace walangforeverRestaurant
             CategoryWindow.Show();
         }
 
-        private void btnProducts_Click(object sender, RoutedEventArgs e)
-        {
-            Products.List ProductsWindow = new Products.List();
-            ProductsWindow.Show();
-        }
-
         private void btnDelivery_Click(object sender, RoutedEventArgs e)
         {
             Delivery.List DeliveryWindow = new Delivery.List();
@@ -87,6 +81,12 @@ namespace walangforeverRestaurant
         {
             Materials.List MaterialsWindow = new Materials.List();
             MaterialsWindow.Show();
+        }
+
+        private void btnMenu_Click(object sender, RoutedEventArgs e)
+        {
+            Category.List categoryWindow = new Category.List();
+            categoryWindow.Show();
         }
     }
 }

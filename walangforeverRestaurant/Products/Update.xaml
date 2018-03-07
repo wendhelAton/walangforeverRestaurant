@@ -1,0 +1,18 @@
+﻿<Window x:Class="walangforeverRestaurant.Products.Update"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:walangforeverRestaurant.Products"
+        mc:Ignorable="d"
+        Title="Update" Height="456.383" Width="556.383">
+    <Grid>
+        <Label x:Name="lblName" Content="Product :" HorizontalAlignment="Left" Margin="6,12,0,0" VerticalAlignment="Top" Height="35" Width="98" FontWeight="Bold" FontSize="18"/>
+        <TextBox x:Name="txtboxName" HorizontalAlignment="Left" Height="35" Margin="108,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154"/>
+        <Button x:Name="btnCancel" Content="Cancel" HorizontalAlignment="Left" Margin="347,375.782,-131,-142.782" VerticalAlignment="Top" Width="76" Height="37" FontSize="18" Click="btnCancel_Click"/>
+        <Button x:Name="btnUpdate" Content="Save" HorizontalAlignment="Left" Margin="442,375.782,-229,-142.782" VerticalAlignment="Top" Width="79" Height="37" FontSize="18" Click="btnUpdate_Click"/>
+        <Label x:Name="lblPrice" Content="Price :" HorizontalAlignment="Left" Margin="10,62.782,0,0" VerticalAlignment="Top" Height="35" Width="98" FontWeight="Bold" FontSize="18"/>
+        <TextBox x:Name="txtboxPrice" HorizontalAlignment="Left" Height="35" Margin="113,0,0,328" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="154"/>
+
+    </Grid>
+</Window>

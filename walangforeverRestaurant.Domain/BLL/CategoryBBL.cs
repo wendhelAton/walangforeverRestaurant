@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using walangforeverRestaurant.Domain.CustomModels;
 using walangforeverRestaurant.Domain.Enums;
 using walangforeverRestaurant.Domain.Insfrastructure;
 using walangforeverRestaurant.Domain.Model;
@@ -18,9 +19,44 @@ namespace walangforeverRestaurant.Domain.BLL
             return db.Categories.ToList();
         }
 
-        public static Page<Category> Search(long pageSize = 3, long pageIndex = 1, SortOrder sortOrder = SortOrder.Ascending, string keyword = "", Guid? parentId = null)
+        public static Category GetCategoryByName(string Name)
         {
-            Page<Category> result = new Page<Category>();
+            return db.Categories.FirstOrDefault(u => u.Name.ToLower() == Name.ToLower());
+        }
+
+        public static Category GetDuplicateName(string Name, Guid? id)
+        {
+            return db.Categories.FirstOrDefault(u => u.Name.ToLower() == Name.ToLower()
+
+            && u.Id != id);
+
+        }
+        public static Category Create(Category category)
+        {
+            db.Categories.Add(category);
+            db.SaveChanges();
+            return category;
+        }
+        public static Category Update(Category category)
+        {
+            Category catRecord = db.Categories.FirstOrDefault(u => u.Id == category.Id);
+            if (catRecord != null)
+            {
+                catRecord.Name = catRecord.Name;
+
+                db.SaveChanges();
+            }
+            return catRecord;
+        }
+        public static Guid? Delete(Category category)
+        {
+            db.Categories.Remove(category);
+            db.SaveChanges();
+            return category.Id;
+        }
+        public static Page<CustomCategory> Search(long pageSize = 3, long pageIndex = 1, SortOrder sortOrder = SortOrder.Ascending, string keyword = "", Guid? parentId = null)
+        {
+            Page<CustomCategory> result = new Page<CustomCategory>();
 
             if (pageSize < 1)
             {
@@ -66,12 +102,40 @@ namespace walangforeverRestaurant.Domain.BLL
             }
 
 
-            result.Items = categories.Skip(skip).Take((int)pageSize).ToList();
+            result.Items = categories
+                .Skip(skip)
+                .Take((int)pageSize)
+                .Select(c => new CustomCategory()
+                {
+                    Id = c.Id,
+                    Name = c.Name,
+                    Timestamp = c.Timestamp,
+                    ParentId = c.ParentId
+                })
+                
+                .ToList();
             result.PageCount = pageCount;
             result.PageSize = pageSize;
             result.QueryCount = queryCount;
 
+            foreach (CustomCategory category in result.Items)
+            {
+                var children = db.Categories.Where(c => c.ParentId == category.Id);
+                if(children != null)
+                {
+                    category.ChildCount = children.Count();
+                }
+                var products = db.Product.Where(c => c.CategoryId == category.Id);
+                if (children != null)
+                {
+                    category.ChildCount = children.Count();
+                }
+            }
             return result;
             }
+        public static Category Find(Guid? id)
+        {
+            return db.Categories.FirstOrDefault(u => u.Id == id);
         }
     }
+}

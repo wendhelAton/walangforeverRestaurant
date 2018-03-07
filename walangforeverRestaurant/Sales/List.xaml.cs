@@ -25,5 +25,40 @@ namespace walangforeverRestaurant.Sales
 
 
         }
+
+        private void cboSortOrder_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void txtboxPageSize_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void btnNext_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnPrevious_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnFirst_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnLast_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

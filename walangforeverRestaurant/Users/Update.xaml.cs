@@ -23,14 +23,16 @@ namespace walangforeverRestaurant.Users
     public partial class Update : Window
     {
         private User _user;
+        private Users.List _sender;
 
-        public Update(User user)
+        public Update(User user,Users.List sender)
         {
             InitializeComponent();
             this.txtboxFirstName.Text = user.FirstName;
             this.txtboxLastName.Text = user.LastName;
             this.txtboxUserName.Text = user.UserName;
             this._user = user;
+            this._sender = sender;
 
 
             cboRole.ItemsSource = Enum.GetValues(typeof(Role)).Cast<Role>().ToList();
@@ -81,6 +83,7 @@ namespace walangforeverRestaurant.Users
                 user.Id = this._user.Id;
                 UsersBLL.Update(user);
                 MessageBox.Show("User successfully Updated.");
+                this._sender.showList();
                 this.Close();
             }
         }
@@ -97,6 +100,11 @@ namespace walangforeverRestaurant.Users
                 };
 
                 return true;
+        }
+
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -11,11 +11,52 @@ namespace walangforeverRestaurant.Domain.BLL
 {
     public class ProductBLL : BaseModel
     {
-        private static DataAccess db = new DataAccess();
+        private static Insfrastructure.DataAccess db = new Insfrastructure.DataAccess();
 
         public static List<Products> GetAll()
         {
             return db.Product.ToList();
+        }
+
+        public static Products GetProductByName(string Name)
+        {
+            return db.Product.FirstOrDefault(u => u.Name.ToLower() == Name.ToLower());
+        }
+       
+        //code for duplicate your user account
+        public static Products GetDuplicateName(string Name, Guid? id)
+        {
+            return db.Product.FirstOrDefault(u => u.Name.ToLower() == Name.ToLower()
+
+            && u.Id != id);
+
+        }
+
+        public static Products Create(Products products)
+        {
+            db.Product.Add(products);
+            db.SaveChanges();
+            return products;
+        }
+        //code for update in datagrid
+        public static Products Update(Products products)
+        {
+            Products ProdRecord = db.Product.FirstOrDefault(u => u.Id == products.Id);
+            if (ProdRecord != null)
+            {
+                ProdRecord.Name = products.Name;
+                ProdRecord.Price = products.Price;
+                
+                
+                db.SaveChanges();
+            }
+            return ProdRecord;
+        }
+        public static Guid? Delete(Products products)
+        {
+            db.Product.Remove(products);
+            db.SaveChanges();
+            return products.Id;
         }
 
         public static Page<Products> Search(long pageSize = 3, long pageIndex = 1, SortOrder sortOrder = SortOrder.Ascending, string keyword = "", Guid? categoryId = null)
@@ -73,5 +114,9 @@ namespace walangforeverRestaurant.Domain.BLL
 
             return result;
             }
+        public static Products Find(Guid? id)
+        {
+            return db.Product.FirstOrDefault(u => u.Id == id);
         }
+    }
     }

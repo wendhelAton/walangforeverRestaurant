@@ -36,6 +36,7 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -48,15 +49,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\CategoryBBL.cs" />
-    <Compile Include="BLL\DeliveryBBL.cs" />
-    <Compile Include="BLL\DeliveryItemsBBL.cs" />
-    <Compile Include="BLL\MaterialsBBL.cs" />
-    <Compile Include="BLL\OrdersBBL.cs" />
+    <Compile Include="BLL\DeliveryBLL.cs" />
+    <Compile Include="BLL\DeliveryItemsBLL.cs" />
+    <Compile Include="BLL\MaterialsBLL.cs" />
+    <Compile Include="BLL\OrderBLL.cs" />
     <Compile Include="BLL\OrdersItemsBBL.cs" />
     <Compile Include="BLL\ProductsBBL.cs" />
-    <Compile Include="BLL\RecipeBBL.cs" />
-    <Compile Include="BLL\SalesBBL.cs" />
+    <Compile Include="BLL\RecipeBLL.cs" />
+    <Compile Include="BLL\SalesBLL.cs" />
     <Compile Include="BLL\UsersBLL.cs" />
+    <Compile Include="CustomModels\CustomCategory.cs" />
+    <Compile Include="CustomModels\CustomDeliveryItems.cs" />
     <Compile Include="Enums\OrderStatus.cs" />
     <Compile Include="Enums\Role.cs" />
     <Compile Include="Enums\SortOrder.cs" />
