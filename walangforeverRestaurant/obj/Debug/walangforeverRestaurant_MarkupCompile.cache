@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\COMLABPC14\source\repos\walangforeverRestaurant\walangforeverRestaurant\App.xaml
-23-1024193515
+19-1178053296
 
-27-1674496254
+24297746604
 171494035128
-Category\Add.xaml;Category\List.xaml;Category\Update.xaml;DeliveryItems\Add.xaml;DeliveryItems\List.xaml;DeliveryItems\Update.xaml;Delivery\Add.xaml;Delivery\List.xaml;Delivery\Update.xaml;MainWindow.xaml;Materials\Add.xaml;Materials\List.xaml;Materials\Update.xaml;OrderItems\List.xaml;Orders\List.xaml;Products\Add.xaml;Products\List.xaml;Products\Update.xaml;Recipe\List.xaml;Sales\List.xaml;Users\Add.xaml;Users\List.xaml;Users\Update.xaml;
+Category\Add.xaml;Category\List.xaml;Category\Update.xaml;Delivery\Add.xaml;Delivery\Additem.xaml;Delivery\List.xaml;MainWindow.xaml;OrderItems\List.xaml;Orders\Add.xaml;Orders\AddItem.xaml;Orders\List.xaml;Products\Add.xaml;Products\List.xaml;Products\Update.xaml;Recipe\List.xaml;Sales\List.xaml;Users\Add.xaml;Users\List.xaml;Users\Update.xaml;
 
 False
 

@@ -18,12 +18,12 @@ namespace walangforeverRestaurant.Domain.Insfrastructure
         public DbSet<Model.User> Users { get; set; }
         public DbSet<Model.Category> Categories { get; set; }
         public DbSet<Model.Products> Product { get; set; }
-        public DbSet<Model.Delivery> Delivery { get; set; }
-        public DbSet<CustomModels.CustomDeliveryItems> DeliveryItems { get; set; }
+        public DbSet<Model.Delivery> Deliveries { get; set; }
         public DbSet<Model.Materials> Materials { get; set; }
         public DbSet<Model.Orders> Orders { get; set; }
         public DbSet<Model.OrderItems> OrderItems { get; set; }
         public DbSet<Model.Recipe> Recipe { get; set; }
         public DbSet<Model.Sales> Sales { get; set; }
+        public DbSet<Model.DeliveryItems> DeliveryItem { get; set; }
     }
 }

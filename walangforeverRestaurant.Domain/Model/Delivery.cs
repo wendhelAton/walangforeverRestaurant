@@ -9,7 +9,5 @@ namespace walangforeverRestaurant.Domain.Model
 {
     public class Delivery : BaseModel
     {
-        public DateTime Date { get; set; }
-
     }
 }

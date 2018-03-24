@@ -3,40 +3,38 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        
         xmlns:local="clr-namespace:walangforeverRestaurant.Delivery"
         mc:Ignorable="d"
-        Title="List" Height="452.239" Width="718.657">
+        Title="List" Height="473.239" Width="819.157">
     <Grid Margin="0,0,2,0">
-        <DataGrid x:Name="grList" HorizontalAlignment="Left" Height="186" Margin="59,118,0,0" VerticalAlignment="Top" Width="606" AutoGenerateColumns="False" CanUserAddRows="False">
+        <DataGrid x:Name="grList" HorizontalAlignment="Left" Height="242" Margin="24,73,0,0" VerticalAlignment="Top" Width="743" AutoGenerateColumns="False" CanUserAddRows="False">
             <DataGrid.Columns>
-               <DataGridTextColumn Header="Date" Width="110"  
-                Binding="{Binding Date, StringFormat={}{0:dd/MM/yyyy}}" IsReadOnly="True" />
-
+                <DataGridTextColumn Header="Delivery Date"
+                      Binding="{Binding Timestamp, StringFormat=\{0:ddd dd MMMM yyyy\}}" Width="*" />
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="btnUpdate">Update</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="btnConfirmDelete">Delete</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
 
-        <Button x:Name="btnLast" Content="&gt;|" HorizontalAlignment="Left" Margin="476,376,0,-34" VerticalAlignment="Top" Width="34" Height="35" Click="btnLast_Click"/>
-        <Button x:Name="btnFirst" Content="|&lt;" HorizontalAlignment="Left" Margin="208,376,0,-34" VerticalAlignment="Top" Width="38" Height="35" RenderTransformOrigin="0.5,0.5" Click="btnFirst_Click_1"/>
-        <Button x:Name="btnNext" Content="&gt;" HorizontalAlignment="Left" Margin="436,376,0,-34" VerticalAlignment="Top" Width="36" RenderTransformOrigin="0.5,0.5" Height="35" Click="btnNext_Click_1"/>
-        <Button x:Name="btnPrevious" Content="&lt;" HorizontalAlignment="Left" Margin="250,376,0,-34" VerticalAlignment="Top" Width="42" RenderTransformOrigin="0.5,0.5" Height="35" Click="btnPrevious_Click_1"/>
-        <Label x:Name="lblPages" Content="          Page X of Y" HorizontalAlignment="Center" Margin="292,376,283,0" VerticalAlignment="Top" Width="134"/>
-        <Label x:Name="lblSort" Content="Sort By" HorizontalAlignment="Left" Margin="61,80,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="25" Width="63">
-            <Label.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-0.725"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Label.RenderTransform>
-        </Label>
-        <ComboBox x:Name="cboSortOrder" HorizontalAlignment="Left" Margin="124,80,0,0" VerticalAlignment="Top" Width="94" SelectionChanged="cboSortOrder_SelectionChanged"/>
-        <Label x:Name="lblResult" Content="Search Result : Z Users" HorizontalAlignment="Center" Margin="65,309,456,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.346" Width="188"/>
-        <Label x:Name="lblPageSize" Content="Page Size" HorizontalAlignment="Left" Margin="65,340,0,0" VerticalAlignment="Top" Width="87"/>
-        <TextBox x:Name="txtboxPageSize" HorizontalAlignment="Left" Height="23" Margin="158,343,0,0" TextWrapping="Wrap" Text="3" VerticalAlignment="Top" Width="31" KeyDown="txtboxPageSize_KeyDown_1"/>
-        <TextBox x:Name="txtBoxSearch" HorizontalAlignment="Left" Height="23" Margin="460,79,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="95" RenderTransformOrigin="0.508,0.522"/>
-        <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Margin="582,79,0,0" VerticalAlignment="Top" Width="84" Click="btnSearch_Click_1"/>
-        <Label x:Name="lblTitle" Content="Delivery" HorizontalAlignment="Left" Margin="59,10,0,0" VerticalAlignment="Top" Width="439" Height="33" FontSize="18" FontWeight="Bold"/>
-
+        <Label x:Name="lblPages" Content="page X of Y" HorizontalAlignment="Left" Margin="578,336,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2.079,-0.173" Width="108" HorizontalContentAlignment="Center" FontStyle="Italic"/>
+        <Label x:Name="lblSort" Content="Sort By" HorizontalAlignment="Left" Margin="24,42,0,0" VerticalAlignment="Top" Width="50"/>
+        <ComboBox x:Name="cboSortOrder" HorizontalAlignment="Left" Margin="209,46,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cboSortOrder_SelectionChanged_1"/>
+        <Label x:Name="lblResults" Content="Search Result : Z Users" HorizontalAlignment="Left" Margin="24,320,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2.079,-0.173" Width="183"/>
+        <Label x:Name="lblPageSize" Content="Page size" HorizontalAlignment="Left" Margin="24,351,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2.079,-0.173" Width="60"/>
+        <TextBox x:Name="txtPageSize" HorizontalAlignment="Left" Height="23" Margin="132,353,0,0" TextWrapping="Wrap" Text="3" VerticalAlignment="Top" Width="20" RenderTransformOrigin="14.2,-7.043" KeyDown="txtPageSize_KeyDown"/>
+        <Button x:Name="btnAdd" Content="Add Delivery" HorizontalAlignment="Left" Margin="692,42,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.169,0.183" Click="btnAdd_Click_1"/>
     </Grid>
 </Window>

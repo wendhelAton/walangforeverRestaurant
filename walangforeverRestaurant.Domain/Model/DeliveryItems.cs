@@ -9,9 +9,12 @@ namespace walangforeverRestaurant.Domain.Model
 {
     public class DeliveryItems : BaseModel
     {
-        
         public Guid? MaterialId { get; set; }
-        public int Quantity { get; set; }
+
+        public virtual Materials Material { get; set; }
+
+        public decimal Quantity { get; set; }
+
         public Guid? DeliveryId { get; set; }
     }
 }

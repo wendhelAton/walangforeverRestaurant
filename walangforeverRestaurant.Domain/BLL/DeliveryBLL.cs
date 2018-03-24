@@ -15,7 +15,7 @@ namespace walangforeverRestaurant.Domain.BLL
 
         public static List<Delivery> GetAll()
         {
-            return db.Delivery.ToList();
+            return db.Deliveries.ToList();
         }
 
         public static Page<Delivery> Search(long pageSize = 3, long pageIndex = 1, SortOrder sortOrder = SortOrder.Ascending, string keyword = "")
@@ -27,12 +27,14 @@ namespace walangforeverRestaurant.Domain.BLL
                 pageSize = 1;
             }
 
-            IQueryable<Delivery> devQuery = (IQueryable<Delivery>)db.Delivery;
+            IQueryable<Delivery> deliveryQuery = (IQueryable<Delivery>)db.Deliveries;
+
             if (string.IsNullOrEmpty(keyword) == false)
             {
-                devQuery = devQuery.Where(c => c.Date.Equals(keyword));
+                deliveryQuery = deliveryQuery.Where(u => u.Timestamp.ToString("ddd dd MMMM yyyy").Contains(keyword));
             }
-            long queryCount = devQuery.Count();
+
+            long queryCount = deliveryQuery.Count();
 
             int pageCount = (int)Math.Ceiling((decimal)(queryCount / pageSize));
             long mod = (queryCount % pageSize);
@@ -43,28 +45,55 @@ namespace walangforeverRestaurant.Domain.BLL
             }
 
             int skip = (int)(pageSize * (pageIndex - 1));
-            List<Delivery> Delivery = new List<Delivery>();
+            List<Delivery> deliveries = new List<Delivery>();
 
             if (sortOrder == SortOrder.Ascending)
             {
-                Delivery = devQuery.OrderBy(c => c.Date).ToList();
+                deliveries = deliveryQuery.OrderBy(u => u.Timestamp).ToList();
             }
-            else
+            else if (sortOrder == SortOrder.Descending)
             {
-                Delivery = devQuery.OrderByDescending(u => u.Date).ToList();
+                deliveries = deliveryQuery.OrderByDescending(u => u.Timestamp).ToList();
             }
 
-
-            result.Items = Delivery.Skip(skip).Take((int)pageSize).ToList();
+            result.Items = deliveries.Skip(skip).Take((int)pageSize).ToList();
             result.PageCount = pageCount;
             result.PageSize = pageSize;
             result.QueryCount = queryCount;
 
             return result;
         }
-        public static Delivery Find(Guid? id)
+
+        public static Delivery Create(CustomModels.CustomDelivery model)
         {
-            return db.Delivery.FirstOrDefault(u => u.Id == id);
+            Delivery delivery = new Delivery()
+            {
+                Id = Guid.NewGuid(),
+                Timestamp = model.Date
+            };
+
+            db.Deliveries.Add(delivery);
+
+            foreach (CustomModels.CustomDeliveryItem item in model.Items)
+            {
+                db.DeliveryItem.Add(new DeliveryItems()
+                {
+                    Id = Guid.NewGuid(),
+                    DeliveryId = delivery.Id,
+                    MaterialId = item.MaterialId,
+                    Quantity = item.Quantity
+                });
+
+                Materials material = db.Materials.FirstOrDefault(m => m.Id == item.MaterialId);
+
+                if (material != null)
+                {
+                    material.Quantity = material.Quantity + item.Quantity;
+                }
+            }
+
+            db.SaveChanges();
+            return delivery;
         }
     }
 }

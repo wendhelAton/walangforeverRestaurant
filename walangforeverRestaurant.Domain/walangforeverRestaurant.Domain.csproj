@@ -59,7 +59,8 @@
     <Compile Include="BLL\SalesBLL.cs" />
     <Compile Include="BLL\UsersBLL.cs" />
     <Compile Include="CustomModels\CustomCategory.cs" />
-    <Compile Include="CustomModels\CustomDeliveryItems.cs" />
+    <Compile Include="CustomModels\CustomDelivery.cs" />
+    <Compile Include="CustomModels\CustomOrder.cs" />
     <Compile Include="Enums\OrderStatus.cs" />
     <Compile Include="Enums\Role.cs" />
     <Compile Include="Enums\SortOrder.cs" />

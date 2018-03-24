@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using walangforeverRestaurant.Domain.Enums;
 
 namespace walangforeverRestaurant.Recipe
 {
@@ -19,6 +20,17 @@ namespace walangforeverRestaurant.Recipe
     /// </summary>
     public partial class List : Window
     {
+
+        private long pageSize = 3;
+        private long pageIndex = 1;
+        private long queryCount = 0;
+        private long pageCount = 0;
+        private SortOrder sortOrder = SortOrder.Ascending;
+        private UserSortOrder sortby = UserSortOrder.UserName;
+        
+        //adding a keyword to search
+        private string keyword = "";
+
         public List()
         {
             InitializeComponent();

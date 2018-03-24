@@ -46,7 +46,7 @@ namespace walangforeverRestaurant.Domain.BLL
         }
 
 
-        public static Page<Orders> Search(long pageSize = 3, long pageIndex = 1, UserSortOrder orderBy = UserSortOrder.UserName, SortOrder sortOrder = SortOrder.Ascending, OrderStatus? orderstatus = null, string keyword = "")
+        public static Page<Orders> Search(long pageSize = 3, long pageIndex = 1, SortOrder sortOrder = SortOrder.Ascending, OrderStatus? orderstatus = null, string keyword = "")
         {
             Page<Orders> result = new Page<Orders>();
 

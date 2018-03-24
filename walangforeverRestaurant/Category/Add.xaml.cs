@@ -51,6 +51,7 @@ namespace walangforeverRestaurant.Category
 
                
                 MessageBox.Show("CategoryName successfully created.");
+                CategoryBLL.Create(category);
                 this._sender.showList();
                 this.Close();
 }

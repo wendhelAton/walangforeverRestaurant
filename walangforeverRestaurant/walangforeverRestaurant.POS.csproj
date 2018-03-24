@@ -70,35 +70,24 @@
     <Compile Include="Category\Update.xaml.cs">
       <DependentUpon>Update.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DeliveryItems\Add.xaml.cs">
-      <DependentUpon>Add.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DeliveryItems\List.xaml.cs">
-      <DependentUpon>List.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DeliveryItems\Update.xaml.cs">
-      <DependentUpon>Update.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Delivery\Add.xaml.cs">
       <DependentUpon>Add.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Delivery\Additem.xaml.cs">
+      <DependentUpon>Additem.xaml</DependentUpon>
     </Compile>
     <Compile Include="Delivery\List.xaml.cs">
       <DependentUpon>List.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Delivery\Update.xaml.cs">
-      <DependentUpon>Update.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Materials\Add.xaml.cs">
-      <DependentUpon>Add.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Materials\List.xaml.cs">
-      <DependentUpon>List.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Materials\Update.xaml.cs">
-      <DependentUpon>Update.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="Delivery\ViewModels\IMaterialViewModel.cs" />
     <Compile Include="OrderItems\List.xaml.cs">
       <DependentUpon>List.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Orders\Add.xaml.cs">
+      <DependentUpon>Add.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Orders\AddItem.xaml.cs">
+      <DependentUpon>AddItem.xaml</DependentUpon>
     </Compile>
     <Compile Include="Orders\List.xaml.cs">
       <DependentUpon>List.xaml</DependentUpon>
@@ -139,27 +128,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DeliveryItems\Add.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="DeliveryItems\List.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="DeliveryItems\Update.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Delivery\Add.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Delivery\List.xaml">
+    <Page Include="Delivery\Additem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Delivery\Update.xaml">
+    <Page Include="Delivery\List.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -175,19 +152,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Materials\Add.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Materials\List.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Materials\Update.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="OrderItems\List.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Orders\Add.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Orders\AddItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -62,7 +62,7 @@ namespace walangforeverRestaurant.Users
         public void showList()
         {
 
-            Page<User> users = UsersBLL.Search(pageSize, pageIndex,sortby,sortOrder,role);
+            Page<User> users = UsersBLL.Search(pageSize, pageIndex,sortby,sortOrder,role, keyword);
             lblPages.Content = "page" + pageIndex + " of " + users.PageCount;
             lblResult.Content = "Search Result: " + users.QueryCount + " Users";
             queryCount = users.QueryCount;

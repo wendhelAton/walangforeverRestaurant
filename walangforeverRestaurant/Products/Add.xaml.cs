@@ -54,6 +54,7 @@ namespace walangforeverRestaurant.Products
 
 
                 MessageBox.Show("Productname successfully created.");
+                ProductBLL.Create(products);
                 this._sender.showList();
                 this.Close();
             }

@@ -10,7 +10,7 @@ namespace walangforeverRestaurant.Domain.Model
     public class Materials : BaseModel
     {
         public string Name { get; set; }
-        public string UOM { get; set; }
-        public int Quantity { get; set; }
+        public string UOM { get; set; } // Unit of Measure
+        public decimal Quantity { get; set; }
     }
 }

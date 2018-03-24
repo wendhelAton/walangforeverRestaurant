@@ -5,12 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:walangforeverRestaurant.Delivery"
         mc:Ignorable="d"
-        Title="Add" Height="300" Width="300">
-    <Grid>
-        <Label x:Name="lblDeliveryItems" Content="DeliveryItems" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="38" Width="132" FontSize="18" FontWeight="Bold"/>
-        <TextBox HorizontalAlignment="Left" Height="31" Margin="147,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="135"/>
-        <Button Content="Cancel" HorizontalAlignment="Left" Margin="196,225,0,0" VerticalAlignment="Top" Width="75" Height="35" FontWeight="Bold"/>
-        <Button Content="Save" HorizontalAlignment="Left" Margin="107,225,0,0" VerticalAlignment="Top" Width="75" Height="35" FontWeight="Bold"/>
-
+        Title="Add" Height="426" Width="802.5">
+    <Grid Margin="0,0,16,20">
+        <Label x:Name="lblDate" Content="" HorizontalAlignment="Left" Margin="38,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2.079,-0.173" Width="362" HorizontalContentAlignment="Center" FontStyle="Italic" FontWeight="Bold" FontSize="24" Height="42"/>
+        <Button x:Name="btnAdd" Content="Add Delivery Item" HorizontalAlignment="Left" Margin="639,42,0,312" Width="128" RenderTransformOrigin="0.169,0.183" Click="btnAdd_Click"/>
+        <DataGrid x:Name="grDeliveryItemList" HorizontalAlignment="Left" Height="242" Margin="24,73,0,0" VerticalAlignment="Top" Width="743" AutoGenerateColumns="False" CanUserAddRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Delivery Item"
+                      Binding="{Binding MaterialName}" Width="*" />
+                <DataGridTextColumn Header="Quantity"
+                      Binding="{Binding Quantity}" Width="*" />
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="btnUpdate">Update</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="btnConfirmDelete">Delete</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="639,344,0,0" VerticalAlignment="Top" Width="128" RenderTransformOrigin="0.169,0.183" Height="26" Click="btnSave_Click"/>
+        <Button x:Name="btnCancel" Content="Cancel" HorizontalAlignment="Left" Margin="489,344,0,0" VerticalAlignment="Top" Width="128" RenderTransformOrigin="0.169,0.183" Height="26" Click="btnCancel_Click"/>
     </Grid>
 </Window>

@@ -27,95 +27,52 @@ namespace walangforeverRestaurant.Delivery
         private long queryCount = 0;
         private long pageCount = 0;
         private SortOrder sortOrder = SortOrder.Ascending;
-        private string keyword = "";
-        private DateTime date = DateTime.Now;
-        private string strDate = "";
-       
+
+
         public List()
         {
             InitializeComponent();
             cboSortOrder.ItemsSource = Enum.GetValues(typeof(SortOrder)).Cast<SortOrder>();
-            cboSortOrder.SelectedIndex = 0;
-            showlist();
-            strDate = date.ToString("dddd, dd MMMM yyyy hh:mm tt"); // Saturday, 21 July 2007 03:00 PM
-        }
-        public void showlist()
-        {
-            Page<walangforeverRestaurant.Domain.Model.Delivery> Delivery = DeliveryBLL.Search(pageSize, pageIndex, sortOrder,keyword);
-            lblPages.Content = "page " + pageIndex + " of " + Delivery.PageCount;
-            lblResult.Content = "Search Result : " + Delivery.QueryCount + " Delivery";
-            queryCount = Delivery.QueryCount;
-            pageCount = Delivery.PageCount;
-            grList.ItemsSource = Delivery.Items;
-            txtboxPageSize.Text = Delivery.PageSize.ToString();
+            showList();
+
         }
 
- 
-        private void cboSortOrder_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        public void showList()
+        {
+            Page<walangforeverRestaurant.Domain.Model.Delivery> deliveries = DeliveryBLL.Search(pageSize, pageIndex, sortOrder, "");
+            lblPages.Content = "page " + pageIndex + " of " + deliveries.PageCount;
+            lblResults.Content = "Search Result : " + deliveries.QueryCount + " Deliveries";
+            queryCount = deliveries.QueryCount;
+            pageCount = deliveries.PageCount;
+            grList.ItemsSource = deliveries.Items;
+            txtPageSize.Text = deliveries.PageSize.ToString();
+        }
+
+        private void cboSortOrder_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
             if (cboSortOrder.SelectedValue.ToString() == SortOrder.Ascending.ToString())
             {
                 sortOrder = SortOrder.Ascending;
-
             }
             else if (cboSortOrder.SelectedValue.ToString() == SortOrder.Descending.ToString())
             {
                 sortOrder = SortOrder.Descending;
-
             }
-            showlist();
+            showList();
         }
 
-
-        private void grList_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        private void btnAdd_Click_1(object sender, RoutedEventArgs e)
         {
-            strDate = date.ToString("dddd, dd MMMM yyyy hh:mm tt"); // Saturday, 21 July 2007 03:00 PM
-            if (e.PropertyType == typeof(System.DateTime))
-                (e.Column as DataGridTextColumn).Binding.StringFormat = "dd/MM/yyyy";
+            Delivery.Add addWindow = new Delivery.Add(this);
+            addWindow.Show();
         }
 
-        private void btnSearch_Click_1(object sender, RoutedEventArgs e)
-        {
-            keyword = txtBoxSearch.Text;
-            showlist();
-        }
-
-        private void btnNext_Click_1(object sender, RoutedEventArgs e)
-        {
-            pageIndex = pageIndex + 1;
-
-            if (pageIndex > pageCount)
-            {
-                pageIndex = pageCount;
-            }
-
-            showlist();
-        }
-
-        private void btnPrevious_Click_1(object sender, RoutedEventArgs e)
-        {
-            pageIndex = pageIndex - 1;
-
-            if (pageIndex < 1)
-            {
-                pageIndex = 1;
-            }
-
-            showlist();
-        }
-
-        private void btnFirst_Click_1(object sender, RoutedEventArgs e)
-        {
-            pageIndex = 1;
-            showlist();
-        }
-
-        private void txtboxPageSize_KeyDown_1(object sender, KeyEventArgs e)
+        private void txtPageSize_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Return)
             {
                 int newPageSize = 3;
-                bool result = Int32.TryParse(txtboxPageSize.Text, out newPageSize);
+                bool result = Int32.TryParse(txtPageSize.Text, out newPageSize);
 
                 if (result == false)
                 {
@@ -124,14 +81,8 @@ namespace walangforeverRestaurant.Delivery
                 }
 
                 pageSize = newPageSize;
-                showlist();
+                showList();
             }
-        }
-
-        private void btnLast_Click(object sender, RoutedEventArgs e)
-        {
-            pageIndex = pageCount;
-            showlist();
         }
     }
 }

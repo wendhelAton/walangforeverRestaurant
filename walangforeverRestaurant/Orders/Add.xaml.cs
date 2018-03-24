@@ -12,14 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace walangforeverRestaurant.DeliveryItems
+namespace walangforeverRestaurant.Orders
 {
     /// <summary>
-    /// Interaction logic for Update.xaml
+    /// Interaction logic for Add.xaml
     /// </summary>
-    public partial class Update : Window
+    public partial class Add : Window
     {
-        public Update()
+        public Add()
         {
             InitializeComponent();
         }

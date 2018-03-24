@@ -286,7 +286,39 @@ namespace walangforeverRestaurant.Domain.Insfrastructure
             #region DeliveryItems
             #endregion
             #region Materials
-           
+
+            db.Materials.Add(new Model.Materials()
+            {
+                Id = Guid.NewGuid(),
+                Name = "Chicken Fillet",
+                UOM = "pcs",
+                Quantity = 50
+                
+            }
+            );
+            db.SaveChanges();
+
+            db.Materials.Add(new Model.Materials()
+            {
+                Id = Guid.NewGuid(),
+                Name = "Noodles",
+                UOM = "packs",
+                Quantity = 50
+
+            }
+           );
+            db.SaveChanges();
+
+            db.Materials.Add(new Model.Materials()
+            {
+                Id = Guid.NewGuid(),
+                Name = "siomai",
+                UOM = "pcs",
+                Quantity = 100
+
+            }
+           );
+            db.SaveChanges();
 
 
             #endregion

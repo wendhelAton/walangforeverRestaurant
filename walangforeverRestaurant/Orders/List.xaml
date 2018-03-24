@@ -9,19 +9,22 @@
     <Grid>
         <DataGrid x:Name="grList" HorizontalAlignment="Left" Height="186" Margin="30,138,0,0" VerticalAlignment="Top" Width="606" AutoGenerateColumns="False" CanUserAddRows="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Name"
-                    Binding="{Binding Name}" Width="*" />
-                <DataGridTemplateColumn>
+                <DataGridTextColumn Header ="OrderNo"
+                    Binding ="{Binding OrderNo}" Width ="*"/>
+                <DataGridTextColumn Header ="TableNo"
+                    Binding ="{Binding TableNo}" Width ="*"/>
+
+            <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                           <!--<Button x:Name="btnConfirmViewChildren" Click="btnViewChildren_Click" Visibility="{Binding ShowChildrenButton}" Content="View Children"/>-->
+                            <!--<Button x:Name="btnConfirmViewChildren" Click="btnViewChildren_Click" Visibility="{Binding ShowChildrenButton}" Content="View Children"/>-->
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                           <!-- <Button x:Name="btnConfirmViewProducts" Click="btnViewProducts_Click" Visibility="{Binding ShowProductsButton}" Content="View Products"/>-->
+                            <!-- <Button x:Name="btnConfirmViewProducts" Click="btnViewProducts_Click" Visibility="{Binding ShowProductsButton}" Content="View Products"/>-->
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
@@ -51,6 +54,8 @@
         <TextBox x:Name="txtBoxSearch" HorizontalAlignment="Left" Height="23" Margin="431,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="95" RenderTransformOrigin="0.508,0.522"/>
         <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Margin="553,99,0,0" VerticalAlignment="Top" Width="84" Click="btnSearch_Click"/>
         <Label x:Name="lblTitle" Content="Orders" HorizontalAlignment="Left" Margin="30,30,0,0" VerticalAlignment="Top" Width="439" Height="33" FontSize="18" FontWeight="Bold"/>
+        <Label x:Name="lblFilter" Content="Filter" HorizontalAlignment="Left" Margin="286,96,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cboOrderStatus" HorizontalAlignment="Left" Margin="337,99,0,0" VerticalAlignment="Top" Width="80" SelectionChanged="cboOrderStatus_SelectionChanged"/>
 
     </Grid>
 </Window>
